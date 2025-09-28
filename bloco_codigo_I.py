@@ -5,11 +5,13 @@ def add(a, b):
 
 def subtract(a, b):
     return a - b
+#teste
 
 def multiply(a, b):
-    return a * b
+    return a * b+1
 
 def divide(a, b):
+#teste
     if b != 0:
         return a / b
     else:

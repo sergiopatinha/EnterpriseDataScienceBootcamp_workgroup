@@ -15,7 +15,7 @@ def divide(a, b):
     if b != 0:
         return a / b
     else:
-        return "Erro: divisão por zero"
+        return "Erro: divisão por zero +1"
 
 print(add(10, 5))
 print(subtract(10, 5))

@@ -22,7 +22,45 @@ Prever o churn (cancelamento) de clientes de uma empresa de telecomunicações, 
 ## Principais tecnologias
 Python (Pandas, Scikit-learn) --XGBoost, SHAP, LIME, Streamlit/Gradio-- talvevz
 
-## Execução
+## Execução: Instalação do ambiente
 1. Criar ambiente:
    ```bash
    pip install -r requirements.txt
+
+ 
+1. Clonar o repositório a partir do GIT:
+
+   ```bash
+
+   git clone <URL_DO_REPOSITORIO>
+
+   cd EnterpriseDataScienceBootcamp_workgroup
+
+   # ou 
+
+   ````Clonar a partir do VS Code
+   
+   Source Control (Ctrl + Shift + G) >> Clone Repository
+
+2. Criar e ativar o ambiente virtual:
+ 
+    ```bash
+
+    Copiar código:
+
+    python -m venv venv
+
+    .\venv\Scripts\activate    # Windows
+
+    # ou
+
+    source venv/bin/activate   # Mac/Linux
+
+    Instalar dependências:
+    
+    bash
+
+    Copiar código
+
+    pip install -r requirements.txt
+ 

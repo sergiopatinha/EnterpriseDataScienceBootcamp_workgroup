@@ -5,15 +5,17 @@ def add(a, b):
 
 def subtract(a, b):
     return a - b
+#teste
 
 def multiply(a, b):
-    return a * b
+    return a * b+1
 
 def divide(a, b):
+#teste
     if b != 0:
         return a / b
     else:
-        return "Erro: divisão por zero"
+        return "Erro: divisão por zero +1+2"
 
 print(add(10, 5))
 print(subtract(10, 5))

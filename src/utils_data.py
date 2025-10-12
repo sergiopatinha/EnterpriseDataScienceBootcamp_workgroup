@@ -1,16 +1,20 @@
 from pathlib import Path
 import pandas as pd
 import json
+from typing import Literal
 
-# Define project structure
-ROOT = Path(__file__).resolve().parents[1]
+# Safe fallback in case __file__ is not available (e.g. running in a notebook)
+try:
+    ROOT = Path(__file__).resolve().parents[1]
+except NameError:
+    ROOT = Path(".").resolve().parent
+
 DATA = ROOT / "data"
 RAW = DATA / "raw"
 INTERIM = DATA / "interim"
 PROCESSED = DATA / "processed"
 
-def save_df(df: pd.DataFrame, name: str, stage: str = "interim", fmt: str = "parquet"):
-    """Save a DataFrame to the specified data stage (raw/interim/processed)."""
+def save_df(df: pd.DataFrame, name: str, stage: Literal["raw", "interim", "processed"] = "interim", fmt: str = "parquet"):
     folder = {"raw": RAW, "interim": INTERIM, "processed": PROCESSED}[stage]
     folder.mkdir(parents=True, exist_ok=True)
     path = folder / f"{name}.{fmt}"
@@ -27,9 +31,7 @@ def save_df(df: pd.DataFrame, name: str, stage: str = "interim", fmt: str = "par
     print(f"✅ Saved {name} → {path}")
     return path
 
-
-def load_df(name: str, stage: str = "interim"):
-    """Load a DataFrame by name from a given data stage."""
+def load_df(name: str, stage: Literal["raw", "interim", "processed"] = "interim"):
     folder = {"raw": RAW, "interim": INTERIM, "processed": PROCESSED}[stage]
     for ext in ("parquet", "feather", "csv"):
         path = folder / f"{name}.{ext}"
@@ -42,9 +44,7 @@ def load_df(name: str, stage: str = "interim"):
                 return pd.read_csv(path)
     raise FileNotFoundError(f"{name} not found in {folder}")
 
-
 def save_meta(obj: dict, name: str, stage: str = "processed"):
-    """Save a metadata dictionary as JSON."""
     folder = {"raw": RAW, "interim": INTERIM, "processed": PROCESSED}[stage]
     folder.mkdir(parents=True, exist_ok=True)
     path = folder / f"{name}.json"
@@ -52,3 +52,9 @@ def save_meta(obj: dict, name: str, stage: str = "processed"):
         json.dump(obj, f, ensure_ascii=False, indent=2)
     print(f"💾 Saved metadata → {path}")
     return path
+
+def list_datasets(stage: str = "interim"):
+    folder = {"raw": RAW, "interim": INTERIM, "processed": PROCESSED}[stage]
+    if not folder.exists():
+        return []
+    return sorted([f.name for f in folder.iterdir() if f.is_file()])

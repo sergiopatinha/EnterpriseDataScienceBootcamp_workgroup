@@ -15,6 +15,7 @@ Prever o churn (cancelamento) de clientes de uma empresa de telecomunicações, 
 ## Estrutura
 - `data/` — dados brutos e processados  
 - `notebooks/` — notebooks de análise e modelagem  
+
       - 00_data_loading.ipynb | Raw data access
       Import libraries, define paths, load raw files, quick data sanity check (shapes, missing files).
 

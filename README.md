@@ -15,6 +15,19 @@ Prever o churn (cancelamento) de clientes de uma empresa de telecomunicações, 
 ## Estrutura
 - `data/` — dados brutos e processados  
 - `notebooks/` — notebooks de análise e modelagem  
+
+      - 00_data_loading.ipynb | Raw data access
+      Import libraries, define paths, load raw files, quick data sanity check (shapes, missing files).
+
+      - 01_data_cleaning.ipynb | Data preparation
+      Merge datasets, normalize IDs, handle missing values, fix datatypes, rename columns, remove duplicates.
+
+      - 02_EDA.ipynb | Insights
+      Summaries, distributions, correlations, churn patterns, first insights.
+
+      - 03_modeling.ipynb | Model training
+      Feature engineering, encoding, train-test split, modeling, evaluation.
+
 - `src/` — código modularizado (ETL, modelagem, explicabilidade)  
 - `app/` — aplicação interativa para deployment (Gradio/Streamlit)  <-- hugging face
 - `presentation/` — slides e material de apresentação  

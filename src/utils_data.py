@@ -17,3 +17,20 @@ def load_df(name: str, folder: str = "interim") -> pd.DataFrame:
     df = pd.read_csv(file_path)
     print(f"📂 Carregado: {file_path}")
     return df
+
+
+
+
+
+
+def quick_overview(df: pd.DataFrame, name: str, show_head: bool = True, n_head: int = 5):
+    """Print a concise overview of a DataFrame: shape, dtypes, and missing values."""
+    print(f"\n===== {name} =====")
+    print(f"Shape: {df.shape[0]} rows × {df.shape[1]} columns\n")
+    print("Data types:")
+    print(df.dtypes)
+    print("\nMissing values per column:")
+    print(df.isna().sum().sort_values(ascending=False))
+    if show_head:
+        print(f"\nFirst {n_head} rows:")
+        display(df.head(n_head))

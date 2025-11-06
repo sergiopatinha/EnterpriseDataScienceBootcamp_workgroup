@@ -18,6 +18,16 @@ Prever o churn (cancelamento) de clientes de uma empresa de telecomunicações, 
 
       - 00_data_loading.ipynb | Raw data access
       Import libraries, define paths, load raw files, quick data sanity check (shapes, missing files).
+         
+         Dataset Overview:
+         The Telco churn project uses five datasets provided by the telecom company:
+               Demographics – customer-level attributes (such as gender, age, marital status).
+               Location – customer’s geographical data (state, city, ZIP).
+               Services – subscribed telecom products (phone, internet, streaming).
+               Status – account-level information including churn flag and reason.
+               Population – ZIP-level population counts for contextual enrichment.
+         Each of the first four datasets contains 7,043 unique customers identified by Customer ID.
+         The Population dataset includes 1,671 ZIP codes, which can be linked to customers via their location data.
 
       - 01_data_cleaning.ipynb | Data preparation
       Merge datasets, normalize IDs, handle missing values, fix datatypes, rename columns, remove duplicates.

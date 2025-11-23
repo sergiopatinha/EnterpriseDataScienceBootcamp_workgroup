@@ -51,4 +51,4 @@ venv.bak/
 
 
 # --- Project-specific ---
-data/
+#data/

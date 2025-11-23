@@ -5,15 +5,29 @@ __pycache__/
 *.pyd
 *.pkl
 *.db
+*.py[cod]
+*.pdb
+*.sqlite3
+
 
 # --- Virtual envs ---
 .venv/
 venv/
 env/
+.env/
+ENV/
+venv.bak/
+
+# --- Configurações locais ---
+.vscode/
+.idea/
+*.code-workspace
+
 
 # --- Jupyter ---
 .ipynb_checkpoints/
 *.checkpoint.ipynb
+*.nbconvert/
 
 # --- VS Code ---
 .vscode/
@@ -29,6 +43,10 @@ env/
 *.gz
 *.h5
 *.log
+*.tmp
+*.bak
+*.swp
+*.swo
 
 # --- Project-specific ---
 data/

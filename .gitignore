@@ -36,6 +36,7 @@ venv.bak/
 .DS_Store
 
 # --- Data / temp files ---
+*.xlsx
 *.csv
 *.tsv
 *.zip
@@ -47,6 +48,7 @@ venv.bak/
 *.bak
 *.swp
 *.swo
+
 
 # --- Project-specific ---
 data/

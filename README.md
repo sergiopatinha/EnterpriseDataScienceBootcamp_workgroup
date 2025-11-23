@@ -75,6 +75,10 @@ Python (Pandas, Scikit-learn) --XGBoost, SHAP, LIME, Streamlit/Gradio-- talvevz
 
     .\venv\Scripts\activate    # Windows
 
+    ou
+
+    .\.venv\Scripts\Activate.ps1
+
     # ou
 
     source venv/bin/activate   # Mac/Linux
@@ -87,3 +91,33 @@ Python (Pandas, Scikit-learn) --XGBoost, SHAP, LIME, Streamlit/Gradio-- talvevz
 
     pip install -r requirements.txt
  
+ 3. Atualizar local main e branch
+
+ --garantir em que branch estamos, devemos estar no nosso main local
+git branch
+
+--o que tiver o asterisco é o branch onde estamos
+
+-- atualizar o nosso main local
+git pull origin main
+
+-- alterar para o nosso branch e confirmar novamente
+git branch
+
+--o que tiver o asterisco é o branch onde estamos
+
+-- fazer o merge do nosso branch com o main atualizado
+git merge main
+
+##########################################
+##########################################
+--Outra forma by sergio patinha
+git checkout main
+git pull origin main
+
+git checkout sergio
+git merge main
+
+git push origin sergio
+##########################################
+##########################################

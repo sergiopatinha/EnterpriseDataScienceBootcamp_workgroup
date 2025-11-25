@@ -118,6 +118,6 @@ git pull origin main
 git checkout sergio
 git merge main
 
-git push origin sergio
+git pull origin main
 ##########################################
 ##########################################

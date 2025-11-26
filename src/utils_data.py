@@ -4,11 +4,27 @@ from pathlib import Path
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
 
 def load_df(name: str, folder: str = "interim") -> pd.DataFrame:
-    """Carrega um dataframe guardado anteriormente"""
+    """
+    Load a previously saved DataFrame from the data directory.
+
+    Parameters
+    ----------
+    name : str
+        File name without extension.
+    folder : str, optional
+        Subfolder inside /data where the file is stored
+        (default: "interim").
+
+    Returns
+    -------
+    pd.DataFrame
+        Loaded DataFrame.
+    """
     file_path = DATA_DIR / folder / f"{name}.csv"
     df = pd.read_csv(file_path)
-    print(f"📂 Carregado: {file_path}")
+    print(f"📂 Loaded: {file_path}")
     return df
+
 
 
 def save_df(

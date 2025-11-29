@@ -36,18 +36,18 @@ venv.bak/
 .DS_Store
 
 # --- Data / temp files ---
-*.xlsx
-*.csv
-*.tsv
-*.zip
-*.parquet
-*.gz
-*.h5
-*.log
-*.tmp
-*.bak
-*.swp
-*.swo
+data/**/*.xlsx
+data/**/*.csv
+data/**/*.tsv
+data/**/*.zip
+data/**/*.parquet
+data/**/*.gz
+data/**/*.h5
+data/**/*.log
+data/**/*.tmp
+data/**/*.bak
+data/**/*.swp
+data/**/*.swo
 
 
 # --- Project-specific ---

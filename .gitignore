@@ -37,6 +37,7 @@ venv.bak/
 
 # --- Data / temp files ---
 data/**/*.xlsx
+data/**/*.json
 data/**/*.csv
 data/**/*.tsv
 data/**/*.zip

@@ -49,6 +49,7 @@ data/**/*.tmp
 data/**/*.bak
 data/**/*.swp
 data/**/*.swo
+.icloud
 
 
 # --- Project-specific ---

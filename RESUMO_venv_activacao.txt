@@ -19,7 +19,7 @@ python -m venv .venv
 --> No PowerShell ou terminal do Visual Studio Code
 
 cd "C:\Path\para\o\projecto"
-.\.venv\Scripts\Activate.ps1
+.\venv\Scripts\Activate.ps1
 
 O terminal muda e fica assim:
 (.venv) PS C:\Path\para\o\projecto>

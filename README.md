@@ -5,9 +5,13 @@ Group project for the course **Big Data Bootcamp - Postgraduate Program in Enter
 Group: EDSB25_20
 
 Members:
+
 Diana Gomes — Student ID: 20240829
+
 Sara Góis — Student ID: 20242129
+
 Sérgio Patinha — Student ID: 20241149
+
 Tiago Franco — Student ID: 20242038
 
 ## Project Overview
@@ -90,6 +94,7 @@ Some false positives accepted as business trade-off
 
 ### Business Strategy & Impact
 Customers are segmented into three action groups:
+
    🔴 High Risk
    Month-to-month contracts
    High monthly charges

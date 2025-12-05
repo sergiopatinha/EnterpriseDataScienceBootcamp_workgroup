@@ -1,123 +1,128 @@
-# Telco Customer Churn Prediction
+# Customer Churn Prediction — Enterprise Data Science Bootcamp
 
-Projeto de grupo da cadeira **Big Data Bootcamp** — Pós-Graduação em Enterprise Data Science & Analytics.
-Grupo **EDSB25_20**
-Membros: 
--     Diana Gomes nº mec: 20240829
--     Sara Góis nº mec: 20242129
--     Sérgio Patinha nº mec: 20241149
--     Tiago Franco nº mec: 20242038
+## Project Identification
+Group project for the course **Big Data Bootcamp - Postgraduate Program in Enterprise Data Science & Analytics**.
+Group: EDSB25_20
+
+Members:
+Diana Gomes — Student ID: 20240829
+Sara Góis — Student ID: 20242129
+Sérgio Patinha — Student ID: 20241149
+Tiago Franco — Student ID: 20242038
+
+## Project Overview
+Customer churn represents a significant risk to recurring revenue businesses. In this project, we build an end-to-end **machine learning system to predict customer churn**, identify its key drivers, and translate predictions into **data-driven retention strategies**.
+
+The core business question is:
+> *Can we reliably predict churn early enough to intervene, and how should the business act on it?*
+
+---
+
+## Business Objectives
+- Predict which customers are most likely to churn  
+- Understand the main behavioral and contractual drivers of churn  
+- Suggest targeted, cost-effective retention actions 
+
+---
+
+## Dataset Description
+
+- **Number of customers:** 7,043  
+- **Initial features:** 56  
+- **Final predictive features:** 31  
+- **Target variable:** `st_churn_label` (Yes / No)  
+- **Duplicate customers:** None  
+
+---
+
+## Feature Domains
+- **Demographics:** gender, age, marital status, dependents  
+- **Location:** ZIP code clusters  
+- **Services & Subscriptions:** phone, internet, security, streaming, contract type  
+- **Billing & Usage:** monthly charges, payment method, data usage  
+- **Customer Engagement:** referrals 
 
 
-## Objetivo
-Prever o churn (cancelamento) de clientes de uma empresa de telecomunicações, identificando os principais fatores que influenciam a saída e propondo estratégias de retenção.
+## Tech Stack
+- Python
+- Pandas, NumPy
+- Scikit-learn
+- Matplotlib, Seaborn
+- Jupyter Notebook
 
-## Estrutura
-- `data/` — dados brutos e processados  
-- `notebooks/` — notebooks de análise e modelagem  
+---
 
-      - 00_data_loading.ipynb | Raw data access
-      Import libraries, define paths, load raw files, quick data sanity check (shapes, missing files).
-         
-         Dataset Overview:
-         The Telco churn project uses five datasets provided by the telecom company:
-               Demographics – customer-level attributes (such as gender, age, marital status).
-               Location – customer’s geographical data (state, city, ZIP).
-               Services – subscribed telecom products (phone, internet, streaming).
-               Status – account-level information including churn flag and reason.
-               Population – ZIP-level population counts for contextual enrichment.
-         Each of the first four datasets contains 7,043 unique customers identified by Customer ID.
-         The Population dataset includes 1,671 ZIP codes, which can be linked to customers via their location data.
+## Analytical Workflow
+### Data Preparation
+- Merging datasets from multiple business domains
+- Strict leakage control (all post-churn variables removed)
+- Target definition and dataset validation
 
-      - 01_data_cleaning.ipynb | Data preparation
-      Merge datasets, normalize IDs, handle missing values, fix datatypes, rename columns, remove duplicates.
+### Exploratory Data Analysis (EDA)
+Key insights discovered:
+- Contract type is the strongest churn driver (month-to-month is highest risk)
+- Early tenure customers are significantly more likely to churn
+- Protection services & referrals reduce churn risk
+- High monthly charges & flexible billing increase churn probability
 
-      - 02_EDA.ipynb | Insights
-      Summaries, distributions, correlations, churn patterns, first insights.
+### Feature Engineering
+- Binary encoding of service indicators
+- Binning of referrals and data usage
+- One-hot encoding of contract, payment, and internet type
+- Merging streaming services into a single feature
+- Geo-clustering using latitude/longitude
+- Removal of redundant and multicollinear variables
 
-      - 03_modeling.ipynb | Model training
-      Feature engineering, encoding, train-test split, modeling, evaluation.
+### Modeling & Evaluation
+Models tested:
+- Logistic Regression
+- Random Forest
+- XGBoost (Final selected model)
 
-- `src/` — código modularizado (ETL, modelagem, explicabilidade)  
-- `app/` — aplicação interativa para deployment (Gradio/Streamlit)  <-- hugging face
-- `presentation/` — slides e material de apresentação  
+**Evaluation strategy:**
+- 80/20 Train–Test split
+- 5-Fold Stratified Cross-Validation
+- Primary metric: F1-Score
 
-## Principais tecnologias
-Python (Pandas, Scikit-learn) --XGBoost, SHAP, LIME, Streamlit/Gradio-- talvevz
+**Final performance interpretation:**
+~70% of true churners detected in advance
+Some false positives accepted as business trade-off
 
-## Execução: Instalação do ambiente
-1. Criar ambiente:
-   ```bash
-   pip install -r requirements.txt
-
- 
-1. Clonar o repositório a partir do GIT:
-
-   ```bash
-
-   git clone <URL_DO_REPOSITORIO>
-
-   cd EnterpriseDataScienceBootcamp_workgroup
-
-   # ou 
-
-   ````Clonar a partir do VS Code
+### Business Strategy & Impact
+Customers are segmented into three action groups:
+   🔴 High Risk
+   Month-to-month contracts
+   High monthly charges
+   Short tenure
+   Fiber + Unlimited data
    
-   Source Control (Ctrl + Shift + G) >> Clone Repository
+   Actions:
+   Short-term loyalty bonuses
+   Contract optimization
+   Targeted bundle discounts
 
-2. Criar e ativar o ambiente virtual:
- 
-    ```bash
+   🟠 Medium Risk
+   Moderate price
+   Some add-ons
+   Mid-tenure
+   
+   Actions:
+   Vouchers
+   Add-on bundles
 
-    Copiar código:
+   🟢 Low Risk
+   Long tenure
+   Multiple services
+   Referrers
+   
+   Actions:
+   Loyalty programs
+   Upselling
+   Refer-a-friend incentives
+   
+   **This turns churn prediction into a direct revenue protection system.**
 
-    python -m venv venv
-
-    .\venv\Scripts\activate    # Windows
-
-    ou
-
-    .\.venv\Scripts\Activate.ps1
-
-    # ou
-
-    source venv/bin/activate   # Mac/Linux
-
-    Instalar dependências:
-    
-    bash
-
-    Copiar código
-
-    pip install -r requirements.txt
- 
- 3. Atualizar local main e branch
-
- --garantir em que branch estamos, devemos estar no nosso main local
-git branch
-
---o que tiver o asterisco é o branch onde estamos
-
--- atualizar o nosso main local
-git pull origin main
-
--- alterar para o nosso branch e confirmar novamente
-git branch
-
---o que tiver o asterisco é o branch onde estamos
-
--- fazer o merge do nosso branch com o main atualizado
-git merge main
-
-##########################################
-##########################################
---Outra forma by sergio patinha
-git checkout main
-git pull origin main
-
-git checkout sergio
-git merge main
-
-git pull origin main
-##########################################
-##########################################
+## Key Takeaways
+- Churn is not random — it is strongly driven by business design
+- Flexible contracts and early lifecycle stages carry the highest risk
+- A predictive system allows proactive, targeted intervention
